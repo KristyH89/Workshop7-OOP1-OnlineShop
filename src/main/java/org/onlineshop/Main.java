@@ -1,7 +1,7 @@
 package org.onlineshop;
 
 public class Main {
-    static void main() {
+    static void main(String[] args) {
 
 
 
