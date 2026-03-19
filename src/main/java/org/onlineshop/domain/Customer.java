@@ -13,6 +13,7 @@ public class Customer {
         setEmail(email);
 
     }
+
     public int getCustomerId() {
         return customerId;
     }
@@ -31,8 +32,9 @@ public class Customer {
         }
         this.name = name;
     }
+
     public void setEmail(String email) {
-        if (email ==  null || email.isEmpty() || !email.contains("@")) {
+        if (email == null || email.isEmpty() || !email.contains("@")) {
             throw new IllegalArgumentException("Invalid email");
         }
         this.email = email;
@@ -43,3 +45,5 @@ public class Customer {
         return "org.catalog.Customer ID: " + customerId + ", Name: " + name + ", Email: " + email;
 
     }
+
+}
