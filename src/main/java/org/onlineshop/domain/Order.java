@@ -5,18 +5,24 @@ import java.util.ArrayList;
 
 public class Order {
 
+    private final int orderId;
     private final Customer customer;
     private final List<Product> products;
     private double totalPrice;
 
-    public Order(Customer customer) {
+    public Order(int orderId, Customer customer) {
         if (customer == null) {
             throw new IllegalArgumentException("Customer cannot be null");
         }
 
+        this.orderId = orderId;
         this.customer = customer;
         this.products = new ArrayList<>();
         this.totalPrice = 0;
+    }
+
+    public int getOrderId() {
+        return orderId;
     }
 
     public void addProduct(Product p) {
@@ -39,19 +45,21 @@ public class Order {
     public String getSummary() {
         StringBuilder sb = new StringBuilder();
 
-        sb.append("Order for ")
+        sb.append("Order ID: ")
+                .append(orderId)
+                .append(" for ")
                 .append(customer.getName())
                 .append(":\n");
 
         for (Product p : products) {
             sb.append("- ")
                     .append(p.getProductName())
-                    .append(", €")
+                    .append(", € ")
                     .append(String.format("%.2f", p.getPrice()))
                     .append(System.lineSeparator());
         }
 
-        sb.append("Total: €")
+        sb.append("Total: € ")
                 .append(String.format("%.2f", totalPrice));
 
         return sb.toString();
