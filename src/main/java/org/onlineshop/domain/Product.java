@@ -27,17 +27,17 @@ public class Product {
         return price;
     }
 
-public void setProductName(String productName) {
+    public void setProductName(String productName) {
         if (productName == null || productName.isEmpty()) {
             throw new IllegalArgumentException("Product name cannot be empty");
         }
         this.productName = productName;
-}
-public void setPrice(double price) {
+    }
+    public void setPrice(double price) {
         if (price <= 0) {
             throw new IllegalArgumentException("Price must be positive");
         }
         this.price = price;
-}
+    }
 
 }

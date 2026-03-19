@@ -1,23 +1,45 @@
 package org.onlineshop.domain;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class Customer {
 
-    public static List<org.onlineshop.model.Customer> createCustomers() {
-        List<org.onlineshop.model.Customer> customers = new ArrayList<>();
+    private final int customerId;
+    private String name;
+    private String email;
 
-            customers.add(new org.onlineshop.model.Customer(0001, "Sheldon Cooper", "drcooper@gmail.com"));
-            customers.add(new org.onlineshop.model.Customer(0002, "Howard Wolowitz", "howard@wasinspace.com"));
-            customers.add(new org.onlineshop.model.Customer(0003, "Leonard Hofstadter", ":leonard@gmail.com"));
-            customers.add(new org.onlineshop.model.Customer(0004, "Raj Koothrappali", "raj@gmail.com"));
-            customers.add(new org.onlineshop.model.Customer(0005, "Penny Hofstadter", "penny@gmail.com"));
-            customers.add(new org.onlineshop.model.Customer(0006, "Bernadette Rostenkowski", "bernadette@gmail.com"));
-            customers.add(new org.onlineshop.model.Customer(0007, "Amy Farrah Fowler", "Amy@gmail.com"));
-
-            return customers;
+    // Constructor
+    public Customer(int customerId, String name, String email) {
+        this.customerId = customerId;
+        setName(name);
+        setEmail(email);
 
     }
+    public int getCustomerId() {
+        return customerId;
+    }
 
-}
+    public String getName() {
+        return name;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setName(String name) {
+        if (name == null || name.isEmpty()) {
+            throw new IllegalArgumentException("Name cannot be empty");
+        }
+        this.name = name;
+    }
+    public void setEmail(String email) {
+        if (email ==  null || email.isEmpty() || !email.contains("@")) {
+            throw new IllegalArgumentException("Invalid email");
+        }
+        this.email = email;
+    }
+
+    @Override
+    public String toString() {
+        return "org.catalog.Customer ID: " + customerId + ", Name: " + name + ", Email: " + email;
+
+    }
