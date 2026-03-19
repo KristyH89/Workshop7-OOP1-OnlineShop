@@ -1,4 +1,4 @@
-package org.lexicon.domain;
+package org.onlineshop.model;
 
 public class Customer {
 

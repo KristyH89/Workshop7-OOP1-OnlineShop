@@ -1,4 +1,4 @@
-package org.lexicon;
+package org.onlineshop;
 
 public class Main {
     static void main() {
